@@ -1,6 +1,5 @@
 package br.dev.nerdlab.lunor.domain;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
