@@ -12,11 +12,17 @@ spring:
       enabled: ALWAYS
   
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: ${DATABASE_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE} #jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: ${DATABASE_CLASS_NAME:org.h2.Driver}
+    username: ${DATABASE_USERNAME:sa}
+    password: ${DATABASE_PASSWORD:}
     hikari:
       maximum-pool-size: 5
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: ${DATABASE_PLATFORM:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      dll-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

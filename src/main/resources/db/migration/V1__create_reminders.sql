@@ -1,0 +1,6 @@
+CREATE TABLE reminders(
+    id UUID PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    due_date TIMESTAMP NOT NULL,
+    completed BOOLEAN NOT NULL DEFAULT FALSE
+);
